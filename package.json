@@ -1,0 +1,20 @@
+{
+  "name": "30day-clean-code",
+  "version": "1.0.0",
+  "description": "--\r - 仍然看不懂自己以前寫得程式?或是別人仍然看不懂你在寫什麼? 註解說的跟程式運作的也不一樣? 如果程式能寫出如同英文子句一般的邏輯描述 那無論是程式交接,或是回顧自己一年前寫的code 豈不是更淺顯易懂? 本篇將以Clean Code 為主軸 從閱讀我們使用的SDK 的Source Code 到撰寫淺寫意懂的程式碼 並介紹為何我們會需要近代的程式碼撰寫技術與規範 \r - 範例語言為 : C# ,maybe Angular5 (此篇會盡可能減少語言之間的隔閡)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcvsling/30day-clean-code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcvsling/30day-clean-code/issues"
+  },
+  "homepage": "https://github.com/dcvsling/30day-clean-code#readme"
+}
