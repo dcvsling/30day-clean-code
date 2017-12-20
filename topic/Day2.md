@@ -21,16 +21,20 @@
 
 所以我們就可以很快速度生成一段code 如下並附加一些解讀　(此註解寫法非正規，僅為表現效果而做)：
 ```
-public class Crawler                                          // 這是爬蟲
+public class Crawler                                          // 爬蟲
 {
-    public List<HtmlNode> Start(string url)                   // 依照參數網址開始運行　並回傳結果
+    public List<HtmlNode> Start(string url)                   // 依照參數網址開始運行並回傳結果
     {
         var client = new HttpClient();                        // 建立Httpclient物件
-        var res = client.GetAsync(url).Result;                // 用client以非同步 GET 的方式去指定網址取得回應並等待結果
-        var stream = res.Content.ReadAsStreamAsync().Result;  // 將取回的Content再以非同步的方式讀取內容串流並等待結果
+        var res = client.GetAsync(url).Result;                // 用client以非同步 GET 的方式
+                                                              // Request指定網址取得回應
+                                                              // 並等待結果
+        var stream = res.Content.ReadAsStreamAsync().Result;  // 將回應的Content再以非同步的方式
+                                                              // 讀取內容串流並等待結果
         var docs = new HtmlDocument();                        // 建立HtmlDocument物件
         docs.Load(stream);                                    // 讀取剛剛取出的串流
-        return docs.DocumentNode.Elements("a").ToList();      // 回傳HtmlDocumentNode中所有Element名稱為"a"的Element
+        return docs.DocumentNode.Elements("a").ToList();      // 回傳HtmlDocumentNode中
+                                                              // 所有Element名稱為"a"的Element
                                                               // 並且放入List中回傳
     }
 }
