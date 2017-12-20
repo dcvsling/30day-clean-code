@@ -50,3 +50,4 @@ public class Crawler                                          // 這是爬蟲
    - 覺得官網沒有工程師的feel 可以至[Github](https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.1.2-sdk-download.md)
    - 你說工程師就是要用[Script](https://github.com/dotnet/docs/blob/master/docs/core/tools/dotnet-install-script.md)來全自動安裝？
  - 此範例程式內容主軸並非完整達成crawler 所以任何細節請參考以crawler為主題的內容為主
+ - [程式專案Github](https://github.com/dcvsling/30day-clean-code/tree/master/src)
