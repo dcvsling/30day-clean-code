@@ -21,9 +21,9 @@
   1. 這是爬蟲，所以除了這些外往往還會有像是批次，排程，自動化等等
   1. 這是爬蟲(很重要所以要說第二次)，在網路發達的年代泛用性太廣了，所以建立一個高泛用性的爬蟲，也許可以對未來有很大的幫助
 
-而如果我們套用目前常聽到的幾個開發原則的話，可以在看出不少問題
+而如果我們套用目前常聽到的幾個開發原則的話，可以再看出不少問題
 
-在Clean Code 的術語中，也就是Bad Smell 
+在<b>Clean Code</b> 的術語中，也就是<b>Bad Smell</b>
 
 這些問題會在後續講述的過程中一一解決
 
@@ -33,7 +33,7 @@
 
 那有簡單的描述嗎?
 
-Ex: 依照提供的Request定義以非同步方式取得Html物件序列
+Ex: <b>依照提供的Request定義以非同步方式取得Html物件序列</b>
 
 翻譯成程式碼就是
 
@@ -54,11 +54,12 @@ public interface ICrawler
 
 而的確是這樣，爬蟲的細節本來就不需要在一開始就被決定
 
-而這就是其中一個，interface 很好用的方式
+而這就是其中一個，interface 很好用的理由
 
 下一次會講這樣的做法可以帶來哪些好處
 
 備註
 ---
+
 　- 本次範例程式碼以更新至[Github](https://github.com/dcvsling/30day-clean-code/tree/Day3)
 　- 類別 [HtmlElement](https://github.com/dcvsling/30day-clean-code/blob/Day2/src/HtmlElement.cs)請參考隨附的範例
