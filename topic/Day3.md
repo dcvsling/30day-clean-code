@@ -1,12 +1,11 @@
 ## Day-3 能不能用一句話說完!?
 ---
-
 把上回最後寫好的程式的註解搬出來看一下
-```
+```csharp
   類別名稱 : 爬蟲
   方法名稱 : 依照參數網址開始運行並回傳結果
   詳細內容 : 
-    1.建立Httpclient物件 
+    1.建立HttpClient物件 
     2.用client以非同步 GET 的方式 Request指定網址取得回應並等待結果
     3.將回應的Content再以非同步的方式讀取內容串流並等待結果
     4.建立HtmlDocument物件讀取剛剛取出的串流回傳HtmlDocumentNode中所有Element名稱為"a"的Element
@@ -23,21 +22,21 @@
 
 而如果我們套用目前常聽到的幾個開發原則的話，可以再看出不少問題
 
-在<b>Clean Code</b> 的術語中，也就是<b>Bad Smell</b>
+在**Clean Code** 的術語中，也就是**Bad Smell**
 
 這些問題會在後續講述的過程中一一解決
 
 而這裡我們目前關注的重點就是，功能性差之外
 
-##這隻爬蟲做太多事情了，所以看起來很複雜
+### **`這隻爬蟲做太多事情了，所以看起來很複雜`**
 
 那有簡單的描述嗎?
 
-Ex: <b>依照提供的Request定義以非同步方式取得Html物件序列</b>
+Ex: **依照提供的Request定義以非同步方式取得Html物件序列**
 
 翻譯成程式碼就是
 
-```
+```csharp
 public interface ICrawler
 {
     /// <summary>
@@ -62,4 +61,4 @@ public interface ICrawler
 ---
 
 　- 本次範例程式碼以更新至[Github](https://github.com/dcvsling/30day-clean-code/tree/Day3)
-　- 類別 [HtmlElement](https://github.com/dcvsling/30day-clean-code/blob/Day2/src/HtmlElement.cs)請參考隨附的範例
+　- 類別 [HtmlElement](https://github.com/dcvsling/30day-clean-code/blob/Day3/src/HtmlElement.cs)請參考隨附的範例
