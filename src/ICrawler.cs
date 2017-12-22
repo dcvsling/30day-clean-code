@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Ithome.IronMan.Example
 {
@@ -13,6 +14,6 @@ namespace Ithome.IronMan.Example
         /// </summary>
         /// <param name="config">Action[HttpRequestMessage]</param>
         /// <returns>IEnumerable[HtmlElement]</returns>
-        IEnumerable<HtmlElement> GetAsync(Action<HttpRequestMessage> config);
+        Task<IEnumerable<HtmlElement>> GetAsync(Action<HttpRequestMessage> config);
     }
 }
