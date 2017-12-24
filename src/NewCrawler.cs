@@ -11,25 +11,26 @@ namespace Ithome.IronMan.Example
     {
         private IHttpClient _http;
         private IHtmlLoader _html;
+        private Func<HttpRequestMessage> _request;
         public NewCrawler(IHttpClient http,IHtmlLoader html)
         {
             this._http = http;
             this._html = html;
+            this._request = CreateRequest;
         }
 
-        public async Task<IEnumerable<HtmlElement>> GetAsync(Action<HttpRequestMessage> config)
-        {
-            // 建立並設定 Request
-            var req = CreateAndConfigure(CreateRequest,config);
-            // 用http 送出Request並等待回應
-            var res = await SendAsync(req);
-            // 讀取Content
-            var stream = await GetContent(res);
-            // 讀取Html
-            return LoadHtml(stream);
-        }
+        public Task<IEnumerable<HtmlElement>> GetAsync(Action<HttpRequestMessage> config)
+            => _request().Create()
+            // IChain<HttpRequestMessage>.WaitThen<Task<HttpResponseMessage>>
+            .WaitThen(SendAsync)
+            // IChainAsync<HttpResponseMessage>.WaitThen<Task<Stream>>
+            .WaitThen(GetContentAsync)
+            // IChainAsync<Stream>.Then<IEnumerable<HtmlElement>>
+            .Then(LoadHtml)
+            // Result = Task<IEnumerable<HtmlElement>>
+            .Result;
 
-        /// <summary>
+        /// <summary> 
         /// 建立空的 Request
         /// </summary>
         /// <returns></returns>
@@ -42,12 +43,11 @@ namespace Ithome.IronMan.Example
         /// <param name="factory">request factory</param>
         /// <param name="config">request config</param>
         /// <returns>requets</returns>
-        private HttpRequestMessage CreateAndConfigure(Func<HttpRequestMessage> factory,Action<HttpRequestMessage> config)
-        {
-            var req = factory();
-            config(req);
-            return req;
-        }
+        private Func<HttpRequestMessage,HttpRequestMessage> ConfigureBy(Action<HttpRequestMessage> config)
+            => req => {
+                config(req);
+                return req;
+            };
 
         /// <summary>
         /// 送出request
@@ -62,7 +62,7 @@ namespace Ithome.IronMan.Example
         /// </summary>
         /// <param name="response">response</param>
         /// <returns>stream</returns>
-        private Task<Stream> GetContent(HttpResponseMessage response)
+        private Task<Stream> GetContentAsync(HttpResponseMessage response)
             => response.EnsureSuccessStatusCode().Content.ReadAsStreamAsync();
 
         /// <summary>

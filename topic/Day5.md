@@ -58,7 +58,7 @@
     /// </summary>
     /// <param name="response">response</param>
     /// <returns>stream</returns>
-    private Task<Stream> GetContent(HttpResponseMessage response)
+    private Task<Stream> GetContentAsync(HttpResponseMessage response)
         => response.EnsureSuccessStatusCode().Content.ReadAsStreamAsync();
 
     /// <summary>
