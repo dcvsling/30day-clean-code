@@ -7,3 +7,4 @@
   * [Day3 - 能不能用一句話說完??](./topic/Day3.md)
   * [Day4 - 面子很重要](./topic/Day4.md)
   * [Day5 - 可以自己取名?](./topic/Day5.md)
+  * [Day6 - 一行解決? 連續技當然算一招](./topic/Day6.md)
