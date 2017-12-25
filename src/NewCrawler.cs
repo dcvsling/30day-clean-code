@@ -21,8 +21,8 @@ namespace Ithome.IronMan.Example
 
         public Task<IEnumerable<HtmlElement>> GetAsync(Action<HttpRequestMessage> config)
             => _request().Create()
-            // IChain<HttpRequestMessage>.WaitThen<Task<HttpResponseMessage>>
-            .WaitThen(SendAsync)
+            // IChain<HttpRequestMessage>.ThenAsync<Task<HttpResponseMessage>>
+            .ThenAsync(SendAsync)
             // IChainAsync<HttpResponseMessage>.WaitThen<Task<Stream>>
             .WaitThen(GetContentAsync)
             // IChainAsync<Stream>.Then<IEnumerable<HtmlElement>>

@@ -1,4 +1,4 @@
-## 可以自己取名?
+## Day-5 可以自己取名?
 ---
 
 前一篇最後提到了，一個有趣的方法名稱叫做 EnsureSuccessStatusCode

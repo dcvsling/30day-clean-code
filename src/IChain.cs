@@ -7,7 +7,7 @@ namespace Ithome.IronMan.Example
     {
         IChain<TNext> Then<TNext>(Func<T,TNext> next);
 
-        IChainAsync<TNext> WaitThen<TNext>(Func<T,Task<TNext>> next);
+        IChainAsync<TNext> ThenAsync<TNext>(Func<T,Task<TNext>> next);
 
         T Result { get; }
     }
