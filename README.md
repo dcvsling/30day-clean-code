@@ -27,3 +27,4 @@
   * [Day4 - 面子很重要](./topic/Day4.md)
   * [Day5 - 可以自己取名?](./topic/Day5.md)
   * [Day6 - 一行解決? 連續技當然算一招](./topic/Day6.md)
+  * [Day7 - 既然不同步，那怎麼說就怎麼做囉](./topic/Day7.md)
