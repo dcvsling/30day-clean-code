@@ -18,3 +18,4 @@ _book
 # Net Core build folder
 obj
 bin
+src/.vs/Ithome.IronMan.Example/v15/.suo

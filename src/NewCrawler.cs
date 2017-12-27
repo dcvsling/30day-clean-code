@@ -4,9 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-
+using Fluent.Sync;
 namespace Ithome.IronMan.Example
 {
+
+    using Fluent.Async;
     public class NewCrawler : ICrawler
     {
         private IHttpClient _http;
@@ -20,11 +22,11 @@ namespace Ithome.IronMan.Example
         }
 
         public Task<IEnumerable<HtmlElement>> GetAsync(Action<HttpRequestMessage> config)
-            => _request().Create()
+            => Chain.Create(_request())
             // IChain<HttpRequestMessage>.ThenAsync<Task<HttpResponseMessage>>
-            .ThenAsync(SendAsync)
+            .Then(SendAsync)
             // IChainAsync<HttpResponseMessage>.WaitThen<Task<Stream>>
-            .WaitThen(GetContentAsync)
+            .Then(GetContentAsync)
             // IChainAsync<Stream>.Then<IEnumerable<HtmlElement>>
             .Then(LoadHtml)
             // Result = Task<IEnumerable<HtmlElement>>
