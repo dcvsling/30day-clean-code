@@ -16,7 +16,6 @@ _book
 *.pdf
 
 # Net Core build folder
-**/obj
-**/bin
+obj
+bin
 src/.vs/Ithome.IronMan.Example/v15/.suo
-.vs
