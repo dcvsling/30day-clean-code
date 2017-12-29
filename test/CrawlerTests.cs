@@ -54,7 +54,7 @@ namespace Ithome.IronMan.Example
         {
             var crawler = CreateCrawler<ErrorHandler>();
 
-            var exception = await Assert.ThrowsAsync<HttpRequestException>(() => crawler.GetAsync(ConfigureRequest(WithContent(CONTENT))));
+            var exception = await Assert.ThrowsAsync<HttpRequestException>(() => crawler.GetAsync(ConfigureRequest(WithContent(LINK_CONTENT))));
         }
 
         private void HasHyperLink(HtmlElement actual)
