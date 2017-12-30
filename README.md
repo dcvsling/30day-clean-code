@@ -30,3 +30,6 @@
   * [Day7 - 既然不同步，那怎麼說就怎麼做囉](./topic/Day7.md)
   * [Day8 - 此路不通，那就另闢戰場吧](./topic/Day8.md)
   * [Day9 - 失敗不代表結束，而是另一個新的開始](./topic/Day9.md)
+  * [Day10 - 所以那個測試呢?](./topic/Day10.md)
+  * [Day11 - 不是史書才能流傳](./topic/Day11.md)
+  * [Day12 - 這方法叫做大中天 (以下省略)](./topic/Day12.md)
