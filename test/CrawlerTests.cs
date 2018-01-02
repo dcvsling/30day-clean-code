@@ -11,7 +11,7 @@ using System.Threading;
 using HtmlAgilityPack;
 using System.Linq;
 
-namespace Ithome.IronMan.Example
+namespace Ithome.IronMan.Example.Tests
 {
     public class CrawlerTests
     {
