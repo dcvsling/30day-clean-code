@@ -12,14 +12,14 @@ namespace Ithome.IronMan.Example.Extensions
     public static class CrawlerExtensions 
     {
         public static Task<IHtmlElementCollection> GetAsync(this ICrawler crawler,string url)
-            => crawler.GetAsync(builder => builder.SetUrl(url));
+            => crawler.FindAsync(builder => builder.SetUrl(url));
 
         public static Task<IHtmlElementCollection> GetAsync(this ICrawler crawler,string method,string url)
-            => crawler.GetAsync(
+            => crawler.FindAsync(
                builder => builder.SetUrl(url)
                     .SetMethod(method));
 
-        public static Task<IHtmlElementCollection> GetAsync(this ICrawler crawler,Action<HttpRequestMessageBuilder> config)
+        public static Task<IHtmlElementCollection> FindAsync(this ICrawler crawler,Action<HttpRequestMessageBuilder> config)
             => crawler.GetAsync(new HttpRequestMessageBuilder()
                     .SetBy(config)
                     .Build(CreateHttpRequestMessage))

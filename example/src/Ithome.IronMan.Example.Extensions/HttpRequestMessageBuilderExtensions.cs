@@ -20,13 +20,13 @@ namespace Ithome.IronMan.Example.Extensions
             return builder;
         }
 
-        public static HttpRequestMessageBuilder SetStringContent(this HttpRequestMessageBuilder builder,string content)
+        public static HttpRequestMessageBuilder SetContent(this HttpRequestMessageBuilder builder,string content)
         {
             builder.SetContent(content.ToHttpContent());
             return builder;
         } 
 
-        public static HttpRequestMessageBuilder SetStreamContent(this HttpRequestMessageBuilder builder, Stream content)
+        public static HttpRequestMessageBuilder SetContent(this HttpRequestMessageBuilder builder, Stream content)
         {
             builder.SetContent(content.ToHttpContent());
             return builder;

@@ -30,7 +30,9 @@ namespace Ithome.IronMan.Example.Extensions
         public void ConfigureHeader(Action<HttpRequestHeaders> config)
             => Set(req => config?.Invoke(req.Headers));
 
-        public HttpRequestMessage Build(Func<HttpRequestMessage> factory)
-            => _configs.Aggregate(factory(),(req,config) => config(req));
+        public HttpRequestMessage Build(Func<HttpRequestMessage> factory = default)
+            => _configs.Aggregate(
+                factory?.Invoke() ?? new HttpRequestMessage(),
+                (req,config) => config(req));
     }
 }

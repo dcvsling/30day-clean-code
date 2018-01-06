@@ -1,7 +1,6 @@
 using System.Net.Http.Headers;
 using System;
 using Xunit;
-using Moq;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.IO;
