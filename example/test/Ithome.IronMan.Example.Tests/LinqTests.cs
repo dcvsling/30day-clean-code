@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using System.Linq;
+using System.Threading.Tasks;
 namespace Ithome.IronMan.Example.Tests
 {
     public class LinqTests
@@ -9,11 +10,12 @@ namespace Ithome.IronMan.Example.Tests
         public Task LargeData_UseList_shouldThrowOutOfMemory()
         {
             var data = Enumerable.Range(1,10000000);
+            Action actualRunner = () => data.ToList().ForEach(x => {});
 
-            Assert.ThrowAsync<OutOfMemoryException>(
-                () => data
-                .ToList()
-                .ForEach(x => x));
+            Assert.ThrowsAsync<OutOfMemoryException>(
+                () => Task.Run(actualRunner));
+
+            return Task.CompletedTask;
         }
 
         [Fact]

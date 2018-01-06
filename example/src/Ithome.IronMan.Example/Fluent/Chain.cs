@@ -6,10 +6,10 @@ namespace Ithome.IronMan.Example
 {
     public abstract class Chain
     {
-        public static IChain<T> Create<T>(T current)
+        public static IChain<T> StartBy<T>(T current)
             => new Chain<T>(current);
 
-        public static IChainAwaiter<T> Create<T>(Task<T> task)
+        public static IChainAwaiter<T> StartBy<T>(Task<T> task)
             => new ChainAwaiter<T>(task);
     }
 }

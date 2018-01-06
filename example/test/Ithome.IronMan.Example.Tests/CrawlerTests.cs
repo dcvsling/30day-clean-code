@@ -1,6 +1,6 @@
+using System.Net.Http.Headers;
 using System;
 using Xunit;
-using Moq;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.IO;
@@ -10,7 +10,7 @@ using System.Net;
 using System.Threading;
 using HtmlAgilityPack;
 using System.Linq;
-
+using Ithome.IronMan.Example;
 namespace Ithome.IronMan.Example.Tests
 {
     public class CrawlerTests
@@ -21,8 +21,8 @@ namespace Ithome.IronMan.Example.Tests
         async public Task GetElement_FromOkHandler_HasHyperLink()
         {
             var crawler = CreateCrawler<OkHandler>();
-            var request = ConfigureRequest(WithContent(LINK_CONTENT));
-
+            var request = CreateRequest(WithContent(LINK_CONTENT));
+            
             var result = await crawler.GetAsync(request);
 
             Assert.Collection(result,HasHyperLink);
@@ -31,7 +31,7 @@ namespace Ithome.IronMan.Example.Tests
         async public Task GetElement_FromOkHandler_HasTwoHyperLink()
         {
             var crawler = CreateCrawler<OkHandler>();
-            var request = ConfigureRequest(WithContent(LINK_CONTENT,LINK_CONTENT));
+            var request = CreateRequest(WithContent(LINK_CONTENT,LINK_CONTENT));
 
             var result = await crawler.GetAsync(request);
 
@@ -42,7 +42,7 @@ namespace Ithome.IronMan.Example.Tests
         async public Task GetElement_FromOkHandler_HasHyperLinkAndDiv()
         {
             var crawler = CreateCrawler<OkHandler>();
-            var request = ConfigureRequest(WithContent(LINK_CONTENT,DIV_CONTENT));
+            var request = CreateRequest(WithContent(LINK_CONTENT,DIV_CONTENT));
 
             var result = await crawler.GetAsync(request);
 
@@ -54,7 +54,8 @@ namespace Ithome.IronMan.Example.Tests
         {
             var crawler = CreateCrawler<ErrorHandler>();
 
-            var exception = await Assert.ThrowsAsync<HttpRequestException>(() => crawler.GetAsync(ConfigureRequest(WithContent(LINK_CONTENT))));
+            var exception = await Assert.ThrowsAsync<HttpRequestException>(
+                () => crawler.GetAsync(CreateRequest(WithContent(LINK_CONTENT))));
         }
 
         private void HasHyperLink(HtmlElement actual)
@@ -86,13 +87,14 @@ namespace Ithome.IronMan.Example.Tests
                 req.Content = new StringContent(String.Join(string.Empty,contents));
             };
 
-        private Action<HttpRequestMessage> ConfigureRequest(Action<HttpRequestMessage> config)
-            => req =>
-            {
-                req.RequestUri = new Uri("https://127.0.0.1/");
-                req.Method = HttpMethod.Get;
-                config(req);
-            };
+        private HttpRequestMessage CreateRequest(Action<HttpRequestMessage> config)
+        {
+            var req = new HttpRequestMessage();
+            req.RequestUri = new Uri("https://127.0.0.1/");
+            req.Method = HttpMethod.Get;
+            config(req);
+            return req;
+        }
     }
 
     public class TestHttpClient : IHttpClient
