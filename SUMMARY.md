@@ -21,3 +21,5 @@
   * [Day17 - 左手是輔助還是擴充?](./topic/Day17.md)
   * [Day18 - 這是兩件事](./topic/Day18.md)
   * [Day19 - 不知不覺就鍊成了!!](./topic/Day19.md)
+  * [Day20 - 在檯面上覆蓋一份測試 結束這回合](./topic/Day20.md)
+  * [Day21 - 案情並不單純?](./topic/Day21.md)
