@@ -24,6 +24,17 @@ namespace Ithome.IronMan.Example.Extensions
                     .SetBy(config)
                     .Build(CreateHttpRequestMessage))
                 .ToCollectionsAsync();
+        async public static Task<CrawlerResult<IHtmlElementCollection>> TryFindAsync(this ICrawler crawler,Action<HttpRequestMessageBuilder> config)
+        {
+            try
+            {
+                return CrawlerResult.Ok(await crawler.FindAsync(config));
+            }
+            catch (Exception ex) 
+            {
+                return CrawlerResult.Error(ex);
+            }
+        }
 
         private static HttpRequestMessage CreateHttpRequestMessage() => new HttpRequestMessage();
     }
