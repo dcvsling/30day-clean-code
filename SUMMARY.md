@@ -25,3 +25,4 @@
   * [Day21 - 案情並不單純?](./topic/Day21.md)
   * [Day22 - 來自異鄉的解決方案](./topic/Day22.md)
   * [Day23 - 是通用，還是專用](./topic/Day23.md)
+  * [Day24 - 是通用，也是專用](./topic/Day24.md)
