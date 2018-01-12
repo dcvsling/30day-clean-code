@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-
+using Ithome.IronMan.Example.Result;
 namespace Ithome.IronMan.Example.Extensions
 {
     public static class CrawlerExtensions 
@@ -24,6 +24,7 @@ namespace Ithome.IronMan.Example.Extensions
                     .SetBy(config)
                     .Build(CreateHttpRequestMessage))
                 .ToCollectionsAsync();
+                
         async public static Task<CrawlerResult<IHtmlElementCollection>> TryFindAsync(this ICrawler crawler,Action<HttpRequestMessageBuilder> config)
         {
             try
