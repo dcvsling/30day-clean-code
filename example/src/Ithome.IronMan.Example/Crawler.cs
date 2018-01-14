@@ -4,11 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Fluent.Sync;
+using Ithome.IronMan.Example.Plugins;
 namespace Ithome.IronMan.Example
 {
-
-    using Fluent.Async;
     public class Crawler : ICrawler
     {
         private IHttpClient _http;

@@ -1,7 +1,7 @@
-using System;
+
 using System.Threading.Tasks;
 
-namespace Fluent.Async
+namespace Ithome.IronMan.Example.Plugins
 {
     public interface IChainAwaiter<T>
     {
