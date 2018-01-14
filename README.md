@@ -45,3 +45,6 @@
   * [Day22 - 來自異鄉的解決方案](./topic/Day22.md)
   * [Day23 - 是通用，還是專用](./topic/Day23.md)
   * [Day24 - 是通用，也是專用](./topic/Day24.md)
+  * [Day25 - 在這瞬間！我要翻開在程式中的技術債](./topic/Day25.md)
+  * [Day26 - 唯有掌握 Log，才能掌握 Exception](./topic/Day26.md)
+  * [Day27 - 如空氣一般的 Log](./topic/Day27.md)

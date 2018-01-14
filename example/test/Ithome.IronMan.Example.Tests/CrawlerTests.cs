@@ -1,5 +1,6 @@
 using System.Net.Http.Headers;
 using System;
+
 using Xunit;
 using System.Threading.Tasks;
 using System.Net.Http;
@@ -54,7 +55,7 @@ namespace Ithome.IronMan.Example.Tests
         {
             var crawler = CreateCrawler<ErrorHandler>();
 
-            var exception = await Assert.ThrowsAsync<HttpRequestException>(
+            var exception = await Assert.ThrowsAsync<AggregateException>(
                 () => crawler.GetAsync(CreateRequest(WithContent(LINK_CONTENT))));
         }
 
