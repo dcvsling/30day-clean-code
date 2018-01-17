@@ -11,13 +11,15 @@ namespace Ithome.IronMan.Example
     {
         private IHttpClient _http;
         private IHtmlLoader _html;
+        private readonly Chain _chain;
 
-        public Crawler(IHttpClient http,IHtmlLoader html)
+        public Crawler(IHttpClient http, IHtmlLoader html, Chain chain)
         {
+            this._chain = chain;
             this._http = http;
             this._html = html;
         }
-        
+
         /// <summary>
         /// 依照提供的Request定義 => Action<HttpRequestMessage>
         /// 以非同步方式取得 　　　=> GetAsync
@@ -26,7 +28,7 @@ namespace Ithome.IronMan.Example
         /// <param name="config">Action[HttpRequestMessage]</param>
         /// <returns>IEnumerable[HtmlElement]</returns>
         public Task<IEnumerable<HtmlElement>> GetAsync(HttpRequestMessage request)
-            => Chain.StartBy(request)
+            => _chain.StartBy(request)
             // IChain<HttpRequestMessage>.ThenAsync<Task<HttpResponseMessage>>
             .Then(SendAsync)
             // IChainAsync<HttpResponseMessage>.WaitThen<Task<Stream>>
@@ -35,7 +37,7 @@ namespace Ithome.IronMan.Example
             .Then(LoadHtml)
             // Result = Task<IEnumerable<HtmlElement>>
             .Result;
-        
+
         /// <summary>
         /// 建立並設定 Request
         /// </summary>

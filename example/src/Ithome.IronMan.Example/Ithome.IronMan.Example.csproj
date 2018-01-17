@@ -4,6 +4,14 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Fluent\**" />
+    <EmbeddedResource Remove="Fluent\**" />
+    <None Remove="Fluent\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.6.13" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ithome.IronMan.Example.Plugins\Ithome.IronMan.Example.Plugins.csproj" />
   </ItemGroup>
 </Project>
