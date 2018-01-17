@@ -2,16 +2,16 @@
 
 namespace Ithome.IronMan.Example.Plugins
 {
-    public class LazyChain<T> : IChain<T>, IChainFactoryAccessor
+    public class LazyChain<T> : IChain<T>
     {
         private readonly Func<T> _func;
         private readonly T _current;
 
-        public LazyChain(ChainFactory factory,T current) : this(factory,() => current)
+        public LazyChain(IChainFactory factory,T current) : this(factory,() => current)
         {
             _current = current;
         }
-        public LazyChain(ChainFactory factory,Func<T> func)
+        public LazyChain(IChainFactory factory,Func<T> func)
         {
             _func = func;
             Factory = factory;
@@ -19,6 +19,6 @@ namespace Ithome.IronMan.Example.Plugins
 
         public T Result => _func();
 
-        public ChainFactory Factory { get; }
+        public IChainFactory Factory { get; }
     }
 }

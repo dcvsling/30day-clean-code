@@ -3,14 +3,9 @@ using System.Threading.Tasks;
 
 namespace Ithome.IronMan.Example.Plugins
 {
-    public interface IChain<T>
+    public interface IChain<T> : IChainFactoryAccessor
     {
 
         T Result { get; }
-    }
-
-    internal interface IChainFactoryAccessor
-    {
-        ChainFactory Factory { get; }
     }
 }

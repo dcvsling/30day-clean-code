@@ -48,3 +48,6 @@
   * [Day25 - 在這瞬間！我要翻開在程式中的技術債](./topic/Day25.md)
   * [Day26 - 唯有掌握 Log，才能掌握 Exception](./topic/Day26.md)
   * [Day27 - 如空氣一般的 Log](./topic/Day27.md)
+  * [Day28 - 想要做什麼東西，蓋工廠就對了](./topic/Day28.md)
+  * [Day29 - Morpheus : Free Your Mind](./topic/Day29.md)
+  * [Day30 - 一切的努力，都只是為了那唯一的目標](./topic/Day30.md)

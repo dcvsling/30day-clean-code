@@ -4,9 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\Ithome.IronMan.Example\Ithome.IronMan.Example.csproj" />
-  </ItemGroup>
-
+      <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0" />
+    </ItemGroup>
 </Project>
