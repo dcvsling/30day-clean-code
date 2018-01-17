@@ -17,6 +17,7 @@
 範例語言為 : C# (此篇會盡可能減少語言之間的隔閡)
 
 ---
+此內容的[GitBook](https://dcvsling.gitbooks.io/code-will-explain-itself/content/)版本
 # Summary
 
 * [Introduction](README.md)
